@@ -109,8 +109,8 @@ int main() {
     CHECK(cudaMemcpy(dev_a, MatA, m*k*sizeof(float), cudaMemcpyHostToDevice));
     CHECK(cudaMemcpy(dev_b, MatB, n*k*sizeof(float), cudaMemcpyHostToDevice));
 
-    CHECK(cublasSetMathMode(handle, CUBLAS_TF32_TENSOR_OP_MATH));
     CHECK(cublasCreate_v2(&handle));
+    CHECK(cublasSetMathMode(handle, CUBLAS_TF32_TENSOR_OP_MATH));
     CHECK(row_major_gemm(handle, 
                         CUBLAS_OP_N, 
                         CUBLAS_OP_N,
